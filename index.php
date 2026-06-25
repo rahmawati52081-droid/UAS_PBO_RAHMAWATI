@@ -100,7 +100,7 @@ class MahasiswaPrestasi extends Mahasiswa {
 $host     = "localhost";
 $username = "root";
 $password = "";
-$database = "db_uas_ti1d_rahmawati"; // <-- Ganti NAMA sesuai database kamu
+$database = "db_uas_pbo_ti1d_rahmawati"; // <-- Ganti NAMA sesuai database kamu
 
 $conn = new mysqli($host, $username, $password, $database);
 
