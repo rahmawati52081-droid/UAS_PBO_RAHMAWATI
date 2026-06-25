@@ -34,7 +34,7 @@ class MahasiswaMandiri extends Mahasiswa {
     }
 
     public function hitungTagihanSemester() {
-        return $this->tarif_ukt_nominal + 100000; // + Biaya Operasional
+        return $this->tarif_ukt_nominal + 100000; // + Biaya Operasional Flat
     }
 
     public function tampilkanSpesifikasiAkademik() {
@@ -42,7 +42,7 @@ class MahasiswaMandiri extends Mahasiswa {
     }
 
     public function getQuerySelectAllMandiri() {
-        return "SELECT id_mahasiswa, nama_mahasiswa, nim, semester, tarif_ukt_nominal, golongan_ukt, nama_wali FROM tabel_mahasiswa WHERE jenis_pembayaran = 'mandiri';";
+        return "SELECT * FROM tabel_mahasiswa WHERE jenis_pembayaran = 'mandiri';";
     }
 }
 
@@ -64,8 +64,9 @@ class MahasiswaBidikmisi extends Mahasiswa {
         echo "Bidikmisi - KIP: {$this->nomorKipKuliah}";
     }
 
+    // DISINI PERBAIKANNYA: Diubah menjadi SELECT * agar tarif_ukt_nominal ikut terbawa
     public function getQuerySelectAllBidikmisi() {
-        return "SELECT id_mahasiswa, nama_mahasiswa, nim, semester, nomor_kip_kuliah, dana_saku_subsidi FROM tabel_mahasiswa WHERE jenis_pembayaran = 'bidikmisi';";
+        return "SELECT * FROM tabel_mahasiswa WHERE jenis_pembayaran = 'bidikmisi';";
     }
 }
 
@@ -87,8 +88,9 @@ class MahasiswaPrestasi extends Mahasiswa {
         echo "Prestasi - Beasiswa: {$this->namaInstansiBeasiswa}";
     }
 
+    // DISINI PERBAIKANNYA: Diubah menjadi SELECT * agar tarif_ukt_nominal ikut terbawa
     public function getQuerySelectAllPrestasi() {
-        return "SELECT id_mahasiswa, nama_mahasiswa, nim, semester, tarif_ukt_nominal, nama_instansi_beasiswa, minimal_ipk_syarat FROM tabel_mahasiswa WHERE jenis_pembayaran = 'prestasi';";
+        return "SELECT * FROM tabel_mahasiswa WHERE jenis_pembayaran = 'prestasi';";
     }
 }
 
@@ -100,7 +102,7 @@ class MahasiswaPrestasi extends Mahasiswa {
 $host     = "localhost";
 $username = "root";
 $password = "";
-$database = "db_uas_pbo_ti1d_rahmawati"; // <-- Ganti NAMA sesuai database kamu
+$database = "db_uas_pbo_ti1d_rahmawati";
 
 $conn = new mysqli($host, $username, $password, $database);
 
